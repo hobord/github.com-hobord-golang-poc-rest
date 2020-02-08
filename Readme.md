@@ -1,7 +1,7 @@
 GO development in VSCode DevContainer
 =====================================
 
-This is a POC project for testing the VSCode devontainer environment.
+This is a POC project for testing the VSCode devcontainer environment.
 
 I using my pre-build golang Docker image: [hobord/golang-vscode](https://github.com/hobord/golang-vscode/blob/master/Dockerfile)
 
