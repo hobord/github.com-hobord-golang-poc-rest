@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/hobord/golang-poc-rest/domain/entity"
-	"github.com/hobord/golang-poc-rest/usecase/mocks"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/hobord/golang-poc-rest/domain/entity"
+	"github.com/hobord/golang-poc-rest/usecase/mocks"
 
 	"github.com/gorilla/mux"
 	"github.com/icrowley/fake"
@@ -14,6 +15,8 @@ import (
 )
 
 func TestGetByID(t *testing.T) {
+	t.Parallel()
+
 	type wantStruct struct {
 		httpStatusCode int
 		responseString string

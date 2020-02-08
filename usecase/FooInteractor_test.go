@@ -2,15 +2,17 @@ package usecase
 
 import (
 	"context"
+	"testing"
+
 	"github.com/hobord/golang-poc-rest/domain/entity"
 	"github.com/hobord/golang-poc-rest/domain/repository/mocks"
 	"github.com/icrowley/fake"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"testing"
 )
 
 func TestFooGetByID(t *testing.T) {
+	t.Parallel()
 	mockRepository := &mocks.FooRepository{}
 
 	fakeID := fake.Sentence()

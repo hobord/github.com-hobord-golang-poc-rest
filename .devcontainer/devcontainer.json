@@ -64,6 +64,13 @@
   "remoteUser": "vscode",
   // Add the IDs of extensions you want installed when the container is created in the array below.
   "extensions": [
-    "ms-vscode.go"
+    "ms-vscode.go",
+    // "premparihar.gotestexplorer",
+    "romanpeshkov.go-test-outline",
+    "windmilleng.vscode-go-autotest",
+    "msyrus.go-doc",
+    "maxmedia.go-prof",
+    "defaltd.go-coverage-viewer",
+    "banxi.go-snippets"
   ]
 }
