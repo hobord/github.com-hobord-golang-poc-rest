@@ -1,0 +1,69 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/go
+{
+  "name": "Go",
+  // --------------------------- SINGLE CONTAINER MODE BEGIN
+  // "dockerFile": "Dockerfile",
+  // "runArgs": [
+  //   "-u",
+  //   "vscode",
+  //   "--cap-add=SYS_PTRACE",
+  //   "--security-opt",
+  //   "seccomp=unconfined"
+  // ],
+  // Use 'appPort' to create a container with published ports. If the port isn't working, be sure
+  // your server accepts connections from all interfaces (0.0.0.0 or '*'), not just localhost.
+  // "appPort": [8080],
+  // Uncomment the next line to run commands after the container is created.
+  // "postCreateCommand": "go version",
+  //  --------------------------- SINGLE CONTAINER MODE END
+  // ---------------------------- MULTICONTAINER, DOCKER-COMPOSE MODE BEGIN 
+  "dockerComposeFile": [
+    "docker-compose.yaml"
+  ],
+  // Select the docker compose service to use as devcontainer
+  "service": "golang",
+  "workspaceFolder": "/workspace",
+  // ---------------------------- MULTICONTAINER, DOCKER-COMPOSE MODE END 
+  // "postCreateCommand": "go mod tidy",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "[go]": {
+      // "editor.codeActionsOnSaveTimeout": 3000,
+      "editor.snippetSuggestions": "none",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    },
+    "go.gopath": "/go",
+    "go.useLanguageServer": true,
+    "go.lintFlags": [
+      "--enable-all",
+      "--new"
+    ],
+    "go.formatTool": "goimports",
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+    "go.autocompleteUnimportedPackages": true,
+    "gopls": {
+      "usePlaceholders": true, // add parameter placeholders when completing a function
+      // Experimental settings
+      "completeUnimported": true, // autocomplete unimported packages
+      "deepCompletion": true // enable deep completion
+    },
+    "go.languageServerFlags": [
+      "serve"
+      // "-rpc.trace", // for more detailed debug logging
+      // "--debug=localhost:6060" // to investigate memory usage, see profiles
+    ]
+  },
+  // Uncomment the next line to have VS Code connect as an existing non-root user in the container.
+  // On Linux, by default, the container user's UID/GID will be updated to match your local user. See
+  // https://aka.ms/vscode-remote/containers/non-root for details on adding a non-root user if none exist.
+  "remoteUser": "vscode",
+  // Add the IDs of extensions you want installed when the container is created in the array below.
+  "extensions": [
+    "ms-vscode.go"
+  ]
+}
